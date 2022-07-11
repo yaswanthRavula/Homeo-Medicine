@@ -1,0 +1,97 @@
+
+.header{
+    display: flex;
+    width: 100%;
+    align-content: space-between;
+    align-items: center;
+
+}
+.total-patients-container{
+    width: fit-content;
+
+}
+.total-patients-container h1{
+    width: fit-content;
+    margin: 0%;
+}
+.total-patients-container  .first{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.total-patients-container .second{
+    font-size: 60px;
+}
+.search-container{
+    margin-left: 70%;
+    border: 1px solid grey;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 5px;
+    
+}
+.search-container input{
+    border: none;
+    float: left;
+    margin: 0%;
+}
+
+.search-container .bi-search{
+    color: blue;
+    cursor: pointer;
+    
+}
+
+.patients-list{
+    background: linear-gradient(114deg,#34aadc,rgb(150, 150, 238));
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 10px rgba(187, 186, 186, 0.212);
+    color: white;
+    border-bottom: 0.5px solid grey;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    
+}
+.patients-list div{
+    width: fit-content;
+    padding-top: 12%;
+    padding-left: 12%;
+    padding-bottom: 12%;
+    padding-right: 14%;
+}
+
+.patients-list h2{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    margin: 0%;
+    width: fit-content;
+    margin-bottom: 2%;
+}
+.patients-list p{
+    font-family: 'Kanit', sans-serif;
+    margin: 0%;
+    margin-bottom: 2%;
+}
+.patients-list button{
+    width: 100%;
+    margin: 0;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    color: rgb(150, 150, 238);
+    background-color:white;
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+
+    
+}
+
+.patients-list button:hover{
+   box-shadow:  0px 1px 7px 1px rgb(72, 72, 72);
+}

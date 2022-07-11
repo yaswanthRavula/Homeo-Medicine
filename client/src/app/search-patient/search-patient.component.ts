@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-patient.component.css']
 })
 export class SearchPatientComponent implements OnInit {
-
+  noOfPatients:any=21;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,92 @@
+.form-container{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%; 
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid hsla(240, 53%, 39%, 0.571);
+    position: relative;
+    
+    box-shadow: 10px 10px 10px 4px rgba(0, 0, 0, 0.152);
+        
+}
+div div{
+    margin-top: 10px;
+    display: block;
+    font-family: 'Changa', sans-serif;
+    margin-top: 30px;
+    color: grey;
+}
+div p{
+    font-family: 'Work Sans', sans-serif;
+    margin: 2px;
+    font-size: 13px;
+    color:rgb(1, 1, 62);
+     font-weight: 600;
+}
+
+
+div input {
+    border-radius: 3px;
+    color: rgb(131, 129, 249);
+    border:1px solid rgba(0, 0, 6, 0.151) ;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    padding-left: 10px;
+    margin-top: 3px;
+    font-weight: 200px;
+    font-family: 'Kanit', sans-serif;
+    
+    
+}
+ ::placeholder{
+
+    color: #1e045f;
+    opacity: 0.8;
+    font-size: 10px;
+    font-weight: 500;
+   font-family: 'Work Sans', sans-serif;
+
+}
+div .dose{
+    display:flex
+}
+div .dose-text{
+    color: grey;
+    margin-right: 10px;
+}
+
+div button{
+    border:none;
+    background: blue;
+    color: white;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: inset;
+    height: 100%;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    font-size: 10px;
+    box-shadow: 6px 6px 10px  black;
+    font-weight: 500;
+   font-family: 'Work Sans', sans-serif;
+
+}
+
+
+.background{
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 120px;
+    height: 45%;
+    width: 100%;
+    background: rgb(61, 61, 210);
+    position: absolute;
+    z-index: -1;
+   top: 5%;
+   right: 1%;
+}
