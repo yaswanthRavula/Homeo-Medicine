@@ -6,7 +6,7 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 app.use(bodyParser.json());
 app.use(cors());
-app.get('/*', (req,res)=>{
+app.get('/', (req,res)=>{
     res.send('index.html',{root:'/dist/client/'})
 })
 app.listen((process.env.PORT || 3000),()=>{console.log("Backend Server Listening at 3000 Port")});
