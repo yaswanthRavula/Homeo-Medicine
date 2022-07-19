@@ -1,5 +1,6 @@
 const express= require('express');
 const app=express();
+app.use(express.static(__dirname+"/dist/"))
 const cors=require('cors');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
