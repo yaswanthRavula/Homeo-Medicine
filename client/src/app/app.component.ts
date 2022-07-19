@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { SearchPatientComponent } from './search-patient/search-patient.component';
+import { PatientDetails } from './services/patient-details';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,19 @@ import { Route, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'client';
+
   constructor(private route:Router){
 
   }
-  goToSearch(){
-    this.route.navigate([''])
+
+  ngOnInit():void{
+  }
+
+  goToPatientsList(){
+      this.route.navigate(['/patientlist']);
+
+  }  
+  goToAddPatient(){
+    this.route.navigate(['/add']);
   }
 }

@@ -1,0 +1,27 @@
+<div class="container">
+    <div id="success-container" class="success-container">
+       <img src="../../assets/done-icon.jpg" height="120px" width="120px">
+       <h1>Dose Added Successfully</h1>
+       <h3 (click)="onAddAnotherDoseClicked()" >Add Another dose ?</h3>
+    </div>
+
+    <div id="fields-container" class="fields-container">
+        <h3>Dose Details</h3>
+        <input id="doseName" type="text" placeholder=" Dose name">
+        <p>Dose Power : </p>
+        <select id="dosePower">
+            <option>6X</option>
+            <option>4x</option>
+            <option>2x</option>
+            <option>30</option>
+        </select>
+        <div>
+        <button (click)="onAddDoseClicked()">Add Dose</button>
+        </div>
+    </div>
+    
+    <div>
+        <button class="close" (click)="onCloseClicked()">Close</button>
+    </div>
+
+</div>

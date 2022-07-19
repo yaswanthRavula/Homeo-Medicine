@@ -3,28 +3,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&family=Kanit:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
 
 <div class="form-container">
-    <div class="firstname">
+    <p style="color: rgb(19, 19, 215); font-size:large; ">- Patient Details -</p>
+    <div class="firstname" >
         <p>Firstname</p>
-        <input type="text" placeholder="Ex: John">
+        <input type="text" (input)="checkFirstName()" id="firstname" [(ngModel)]="firstName" placeholder="Ex: John">
     </div>
 
     <div class="secondname">
-        <p>Surname</p>
-        <input type="text" placeholder="Ex: Beck">
+        <p>Secondname</p>
+        <input type="text" (input)="checkSecondName()" id="secondname" [(ngModel)]="secondName" placeholder="Ex: Beck">
     </div>
 
     <div class="age">
         <p>Age</p>
-        <input type="number" placeholder="Ex: 36">
+        <input type="number" (input)="checkAge()" id="age" [(ngModel)]="age" placeholder="Ex: 36">
     </div>
 
-    <div class="age">
+    <div class="gender">
+        <p>Gender:</p>
+        <select name="gender" id="gender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>    
+    </div>
+
+    <div class="number">
         <p>Phone Number</p>
-        <input type="number" placeholder="Number">
+        <input type="number" (input)="checkNumber()" id="number" [(ngModel)]="number"  placeholder="Number">
     </div>
 
     <div>
-        <button>Add Patient</button>
+        <button (click)="addPatient()">Add Patient</button>
     </div>
 </div>
 

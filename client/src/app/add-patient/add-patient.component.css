@@ -2,13 +2,12 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%; 
+    margin-top: 20%; 
     padding: 20px;
     background-color: white;
     border-radius: 30px;
-    border: 1px solid hsla(240, 53%, 39%, 0.571);
+    border: 1.5px solid grey;
     position: relative;
-    
     box-shadow: 10px 10px 10px 4px rgba(0, 0, 0, 0.152);
         
 }
@@ -30,7 +29,7 @@ div p{
 
 div input {
     border-radius: 3px;
-    color: rgb(131, 129, 249);
+    color: black;
     border:1px solid rgba(0, 0, 6, 0.151) ;
     padding-top: 7px;
     padding-bottom: 5px;
@@ -38,9 +37,13 @@ div input {
     padding-left: 10px;
     margin-top: 3px;
     font-weight: 200px;
+    font-size: 12px;
     font-family: 'Kanit', sans-serif;
-    
-    
+}
+input:focus{
+    outline: none;
+    border: 1px solid rgb(61, 61, 210);
+    box-shadow: 0.5px 1px 1px 0px rgba(61, 61, 210, 0.344);
 }
  ::placeholder{
 
@@ -61,18 +64,17 @@ div .dose-text{
 
 div button{
     border:none;
-    background: blue;
+    background: linear-gradient(150deg,rgb(3, 3, 63),blue,darkblue);
     color: white;
     width: 100%;
-    border-radius: 3px;
-    box-shadow: inset;
+    border-radius: 3px; 
     height: 100%;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
     font-size: 10px;
-    box-shadow: 6px 6px 10px  black;
+    box-shadow: 2px 4px 6px  grey;
     font-weight: 500;
    font-family: 'Work Sans', sans-serif;
 
@@ -84,9 +86,52 @@ div button{
     border-bottom-right-radius: 120px;
     height: 45%;
     width: 100%;
-    background: rgb(61, 61, 210);
+    background: linear-gradient(250deg,rgb(3, 3, 63),blue,darkblue);
     position: absolute;
     z-index: -1;
    top: 5%;
    right: 1%;
+}
+
+.form-container .gender{
+    display: flex;
+  
+}
+.gender select{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 10px;
+    margin-left: 2%;
+    border: 1px solid rgb(61, 61, 210) ;
+    color: #1e045f;
+}
+select option{
+    color:  #111;
+    background-color: #fff;
+}
+
+select option:hover{
+    background-color: rgb(61, 61, 210)  ;
+    color: #111;
+}
+
+@media screen and (min-width: 900px) {
+    .form-container{
+        display: grid;
+        margin-top: 2%;
+        width: fit-content;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
+    div button{
+        width: initial;
+        height: initial;
+        padding-top: 6%;
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-bottom: 6%;
+        margin-left: 5%;
+    }
 }

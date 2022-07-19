@@ -1,0 +1,34 @@
+
+<div class="patient-header">
+    <h1>{{patient.firstname}}</h1>
+    <h1> {{patient.lastname}}</h1>
+    <div class="outer-details-container">
+            <p>Age : {{patient.age}} Years</p>
+            <p> Gender : {{patient.gender}}</p>
+            <p>Phone Number : {{patient.phoneNumber}}</p>
+        
+    </div>
+</div>
+<div class="add-container">
+<p style="padding-left: 5%;">joined on : {{patient.joinedDate | date}}</p>
+<button (click)="addDoseClicked()" >+ New Dose</button>
+</div>
+
+<div>
+    <div class="heading" ><p>Date</p><p>Medicine</p></div>
+    <div class="Data-container" *ngFor="let item of uniqueDatesSet">
+        <h1>{{item|date}} : </h1>
+        <ol type="" class="Doses-container" >
+                <table *ngFor="let desc of description;let i=index;">
+                    <tr>
+                        <td >{{i+1}}.</td>
+                        <td *ngIf="item === (desc.doseDate| date:'mediumDate' )" style="opacity: 0;">1</td>
+                        <td style="width: 100%;" class="tD" *ngIf="item === (desc.doseDate| date:'mediumDate' )">{{desc.doseName}}</td>
+                        <td class="space" *ngIf="item === (desc.doseDate| date:'mediumDate' )">12</td>
+                        <td class="tD" style="width: 100%;" *ngIf="item === (desc.doseDate| date:'mediumDate' )">{{desc.dosePower}}</td>
+                    </tr>
+                </table>
+        </ol>
+    </div>
+</div>
+<p *ngIf="(description == null) || (description.length==0)" style="margin-left: auto; margin-right:auto; color: blue;"><span style="color: black;">Huh Oh !</span> No Dosess to display</p>
