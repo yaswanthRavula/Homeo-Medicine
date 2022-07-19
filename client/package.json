@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server/index.js ",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbild":"ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -28,7 +29,10 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mongoose": "^6.4.4",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "@angular/cli": "~14.0.4",
+    "@angular/compiler-cli": "^14.0.0",
+    "typescript": "~4.7.2"
   },
   "overrides": {
     "autoprefixer": "10.4.5"
@@ -45,5 +49,9 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.7.2"
+  },
+  "engines":{
+    "node": "16.15.1",
+    "npm":"8.13.2"
   }
 }
