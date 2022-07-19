@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start":"node server/index.js",
-    "build": "ng build",
+    "start":"server/index.js",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbild":"ng build --prod"
