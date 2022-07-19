@@ -1,13 +1,14 @@
 const express= require('express');
+const path=require("path");
 const app=express();
-app.use(express.static("./dist/client/"))
+app.use(express.static(__dirname+'/dist/client/'))
 const cors=require('cors');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 app.use(bodyParser.json());
 app.use(cors());
-app.get('/', (req,res)=>{
-    res.sendFile('index.html',{root:'dist/clientqsas'})
+app.get('/*', (req,res)=>{
+    res.sendFile(path.join(__dirname,'dist/client','index.html'))
 })
 app.listen((process.env.PORT || 3000),()=>{console.log("Backend Server Listening at 3000 Port")});
 mongoose.connect("mongodb+srv://yaswanth07:Yy8309328761@cluster0.fgrp3.mongodb.net/?retryWrites=true&w=majority")
