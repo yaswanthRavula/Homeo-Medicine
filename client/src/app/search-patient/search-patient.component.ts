@@ -19,6 +19,7 @@ export class SearchPatientComponent implements OnInit {
   ngOnInit(): void {
        this.http.getPatients().subscribe((data)=>{
           this.patientsArray=data;
+          this.patientsArray=this.patientsArray.reverse()
           this.sortedArray=this.patientsArray;
           this.noOfPatients=this.sortedArray.length;
        })
