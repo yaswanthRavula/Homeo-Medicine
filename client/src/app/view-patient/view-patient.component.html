@@ -21,7 +21,7 @@
         <ol type="" class="Doses-container" >
                 <table *ngFor="let desc of description;let i=index;">
                     <tr>
-                        <td >{{i+1}}.</td>
+                        <td *ngIf="item === (desc.doseDate| date:'mediumDate' )">{{i+1}}.</td>
                         <td *ngIf="item === (desc.doseDate| date:'mediumDate' )" style="opacity: 0;">1</td>
                         <td style="width: 100%;" class="tD" *ngIf="item === (desc.doseDate| date:'mediumDate' )">{{desc.doseName}}</td>
                         <td class="space" *ngIf="item === (desc.doseDate| date:'mediumDate' )">12</td>

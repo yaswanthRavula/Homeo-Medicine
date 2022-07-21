@@ -23,8 +23,8 @@ export class VIewPatientComponent implements OnInit {
 
   ngOnInit(): void {
     this.patient=JSON.parse(localStorage.getItem("currentPatient"));
-    console.log("The structure: "+ this.patient._id)
     this.description=this.patient.description;
+    console.log(this.description)
     if(this.description==null){
       this.description=[];
     }
@@ -37,14 +37,15 @@ export class VIewPatientComponent implements OnInit {
    let dialogConfig= this.matDialog.open(AddDoseComponent,{autoFocus:true,width:'80%', data:d});
    dialogConfig.afterClosed().subscribe((res)=>{
     d=res;
-    this.description.push(d);
+    if(d.doseName!=""){
+    this.description.push(d); 
     this.patient.description=this.description;
     let p:PatientDetails=this.patient;
     this.http.updatePatient(this.patient._id,p).subscribe((res)=>{
       console.log(res)
     },(err)=>{  
       console.log("The error is : "+err.message)
-    })
+    })}
     this.getUniqueDates();
 
    })

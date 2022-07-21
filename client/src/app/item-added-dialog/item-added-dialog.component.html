@@ -1,10 +1,10 @@
 <div class="container">
     <h2>Success</h2>
-    <p>OP is registered for patientName by you</p>
+    <p>OP is registered for {{patientName}} by you</p>
     <div class="patient-container">
-        <p>Name : Patient Name</p>
-        <p>Age : 36</p>
-        <p>Gender: Male</p>
+        <p>Name : {{patientName}}</p>
+        <p>Age : {{age}}</p>
+        <p>Gender: {{gender}}</p>
     </div>
-    <button>Ok</button>
+    <button (click)="onOkClicked()">Ok</button>
 </div>

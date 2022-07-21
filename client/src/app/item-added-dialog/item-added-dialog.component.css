@@ -3,8 +3,7 @@
     padding: 3%;
     border-radius:10px;
     text-align: center;
-    font-family: 'Kanit', sans-serif;
-    box-shadow: 4px 4px 50px 10px black;
+    font-family: 'Kanit', sans-serif;   
 }
 .container h2{
     color: green;

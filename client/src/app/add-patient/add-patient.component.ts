@@ -56,9 +56,8 @@ export class AddPatientComponent implements OnInit {
   }
 
 
-  showDialog(patient){
-        this.localStorageService.storeInLocalStorage(patient);
-        this.dialog.open(ItemAddedDialogComponent,{autoFocus:true});
+  showDialog(patient:PatientDetails){
+        this.dialog.open(ItemAddedDialogComponent,{autoFocus:true, data:patient});
 
   }
 

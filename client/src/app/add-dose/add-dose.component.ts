@@ -21,13 +21,14 @@ export class AddDoseComponent implements OnInit {
   onAddDoseClicked(){
      this.data.doseName=(<HTMLInputElement>document.getElementById("doseName")).value;
      this.data.dosePower=(<HTMLInputElement>document.getElementById("dosePower")).value;
-     this.data.doseDate=new Date();
+     this.data.doseDate=new Date((<HTMLInputElement>document.getElementById("doseDate")).value)
+     console.log(this.data.doseDate)
       document.getElementById("fields-container").style.display="none";
       document.getElementById("success-container").style.display="inline";
 }
 
   onCloseClicked(){
-
+    console.log(this.data.doseDate)
     this.dialogRef.close(this.data);
   }
 
