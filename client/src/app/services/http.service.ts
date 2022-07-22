@@ -7,7 +7,7 @@ import { PatientDetails } from './patient-details';
   providedIn: 'root'
 })
 export class HttpService {
-APiUrl="https://localhost:3000/HomeoMedicine/patients";
+APiUrl="http://localhost:3000/HomeoMedicine/patients";
   constructor(private http:HttpClient ) { }
 
   postPatient(patient: PatientDetails){
