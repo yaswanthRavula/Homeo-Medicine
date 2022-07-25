@@ -7,7 +7,7 @@ import { PatientDetails } from './patient-details';
   providedIn: 'root'
 })
 export class HttpService {
-APiUrl="http://https://murali-homeo.herokuapp.com/3000/HomeoMedicine/patients";
+APiUrl="https://murali-homeo.herokuapp.com/3000/HomeoMedicine/patients";
   constructor(private http:HttpClient ) { }
 
   postPatient(patient: PatientDetails){
