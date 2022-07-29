@@ -13,6 +13,7 @@ import { ItemAddedDialogComponent } from './item-added-dialog/item-added-dialog.
 import { VIewPatientComponent } from './view-patient/view-patient.component';
 import { DatePipe } from '@angular/common';
 import { AddDoseComponent } from './add-dose/add-dose.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { AddDoseComponent } from './add-dose/add-dose.component';
     BrowserAnimationsModule
     
   ],
-  providers: [DatePipe],
+  
+  providers: [DatePipe,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   entryComponents:[ItemAddedDialogComponent,AddDoseComponent]
 })

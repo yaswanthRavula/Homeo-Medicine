@@ -7,7 +7,7 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 app.use(cors())
 app.use(bodyParser.json());
-app.get('*', (req,res)=>{
+app.get('/', (req,res)=>{
     res.sendFile(path.join('/dist/client/index.html'))
 })
 
