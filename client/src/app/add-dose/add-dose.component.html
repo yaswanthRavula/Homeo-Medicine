@@ -4,21 +4,21 @@
        <h1>Dose Added Successfully</h1>
        <h3 (click)="onAddAnotherDoseClicked()" >Add Another dose ?</h3>
     </div>
-
-    <div id="fields-container" class="fields-container">
-        <h3>Dose Details</h3>
-        <input id="doseName" type="text" placeholder=" Dose name">
-        <p>Dose Power : </p>
-        <select id="dosePower">
-            <option>6</option>
-            <option>30</option>
-            <option>200</option>
-            <option>1M</option>
-            <option>10M</option>
-            <option>MOT</option>
-            <option>6x</option>
-            <option>OTH</option>
-        </select>
+        <div id="fields-container" class="fields-container">
+            <h3>Dose Details</h3>
+            <table>
+                <tr><th>,</th><th></th></tr>
+                <tr><td> <p>6 </p></td><td> <input id="doseName-6" placeholder="dose name"> </td></tr>
+                <tr><td> <p>30 </p></td><td> <input id="doseName-30" placeholder="dose name"> </td></tr>
+                <tr><td> <p>200</p> </td><td><input id="doseName-200" placeholder="dose name"> </td></tr>
+                <tr><td> <p>1M </p></td><td> <input id="doseName-1m" placeholder="dose name"> </td></tr>
+                <tr><td> <p>10M</p></td><td> <input id="doseName-10m" placeholder="dose name"> </td></tr>
+                <tr><td> <p>MOT</p></td><td> <input id="doseName-mot" placeholder="dose name"> </td></tr>
+                <tr><td> <p>6x </p></td><td> <input id="doseName-6x" placeholder="dose name"> </td></tr>
+                <tr><td> <p>Oth</p></td><td> <input id="doseName-oth" placeholder="dose name"> </td></tr>
+            </table>
+   
+        
         <div><input type="date" id="doseDate" placeholder="Date of Dose"></div>
         <div>
         <button (click)="onAddDoseClicked()">Add Dose</button>

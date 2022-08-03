@@ -11,6 +11,7 @@ APiUrl="https://murali-homeo.herokuapp.com/HomeoMedicine/patients";
   constructor(private http:HttpClient ) { }
 
   postPatient(patient: PatientDetails){
+    console.log("From HTTP Servide-------------"+patient.c)
     return this.http.post(this.APiUrl,patient);
   }
 

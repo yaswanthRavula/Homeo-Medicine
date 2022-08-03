@@ -6,6 +6,7 @@ export class PatientDetails {
     age:number;
     gender:string;
     phoneNumber:number;
+    c: string;
     joinedDate:Date;
     description: Description[];
 }

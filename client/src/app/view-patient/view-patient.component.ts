@@ -33,12 +33,16 @@ export class VIewPatientComponent implements OnInit {
   }
 
   addDoseClicked(){
-    let d:Description={doseName:"", dosePower:"",doseDate:new Date()};
+    let d:Description[]=[];
    let dialogConfig= this.matDialog.open(AddDoseComponent,{autoFocus:true,width:'80%', data:d});
    dialogConfig.afterClosed().subscribe((res)=>{
     d=res;
-    if(d.doseName!=""){
-    this.description.push(d); 
+    if(d!=undefined && d.length>0){
+      d.forEach((elem)=>{
+        console.log("testing dose date just after sub: \n"+elem.doseDate)
+        this.description.push(elem); 
+      })
+    
     this.patient.description=this.description;
     let p:PatientDetails=this.patient;
     this.http.updatePatient(this.patient._id,p).subscribe((res)=>{

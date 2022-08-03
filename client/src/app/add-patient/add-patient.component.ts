@@ -5,6 +5,7 @@ import { PatientDetails } from '../services/patient-details';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { ItemAddedDialogComponent } from '../item-added-dialog/item-added-dialog.component';
 import { config } from 'rxjs';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-patient',
@@ -18,8 +19,9 @@ export class AddPatientComponent implements OnInit {
   age;
   number;
   gender;
+  comment="";
 
-  constructor(private http:HttpService, private localStorageService:LocalStorageService, private dialog:MatDialog){
+  constructor(private route:Router , private http:HttpService, private localStorageService:LocalStorageService, private dialog:MatDialog){
 
   }
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class AddPatientComponent implements OnInit {
      return;
      this.normalColors();
      this.gender=(<HTMLInputElement>document.getElementById("gender")).value;
-     let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,joinedDate:new Date(),description:null }
+     let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,c:this.comment,joinedDate:new Date(),description:null }
     this.http.postPatient(patient).subscribe((data)=>{if(data){
                     this.showDialog(patient);
     }});
@@ -57,7 +59,9 @@ export class AddPatientComponent implements OnInit {
 
 
   showDialog(patient:PatientDetails){
-        this.dialog.open(ItemAddedDialogComponent,{autoFocus:true, data:patient});
+        var dialogRef=this.dialog.open(ItemAddedDialogComponent,{autoFocus:true, data:patient});
+       dialogRef.afterClosed().subscribe(()=>{this.route.navigate(['/patientlist'])});
+        
 
   }
 

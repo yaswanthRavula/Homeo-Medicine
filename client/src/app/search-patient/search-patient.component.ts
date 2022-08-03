@@ -61,6 +61,7 @@ export class SearchPatientComponent implements OnInit {
 
    showPatient(patient:PatientDetails){
                   this.localStorage.storeInLocalStorage(patient);
+                  console.log("Data test im Search patient\n"+JSON.stringify(patient));
                   localStorage.setItem("currentPatient",JSON.stringify(patient));
                   this.router.navigate(['/patientlist/patient']);            
    }

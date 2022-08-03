@@ -6,6 +6,7 @@ const PatientSchema = new mongoose.Schema([
     {age: Number},
     {gender: String},
     {phoneNumber: Number},
+    {c: String},
     {joinedDate: Date},
     {description: [DescriptionSchema]}
 

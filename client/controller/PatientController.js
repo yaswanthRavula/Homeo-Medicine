@@ -13,6 +13,7 @@ router.get("/", async (req,res)=>{
 
 
 router.post("/", async (req,res)=>{
+    try{
     const data=new PatientSchema({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -21,9 +22,15 @@ router.post("/", async (req,res)=>{
         phoneNumber: req.body.phoneNumber,
         joinedDate:req.body.joinedDate,
         description: req.body.description,
+        c:req.body.c,
     })
+    console.log("hoii");
     await data.save();
     res.send(true);
+    }
+    catch(exception){
+        console.log(exception)
+    }
 })
 
 router.put("/:id", async (req,res)=>{
@@ -38,3 +45,4 @@ router.put("/:id", async (req,res)=>{
     }  
 })
 module.exports=router;
+

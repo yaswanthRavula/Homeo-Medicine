@@ -31,6 +31,10 @@
         <p>Phone Number</p>
         <input type="number" (input)="checkNumber()" id="number" [(ngModel)]="number"  placeholder="Number">
     </div>
+    <div class="comment">
+        <p>Comment</p>
+        <textarea [(ngModel)]="comment" placeholder=" Anything about patient (Optional)"></textarea>
+    </div>
 
     <div>
         <button (click)="addPatient()">Add Patient</button>

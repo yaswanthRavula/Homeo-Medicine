@@ -28,10 +28,12 @@
 }
 .fields-container input{
     outline: none;
-    margin-top: 15%;
+    margin-top: 7%;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 2px;
+    height: 15%;
+    width: 80%;
     border: 1px solid skyblue;
 
 }
@@ -39,13 +41,12 @@
 .fields-container p{
     margin: 0;
     margin-top: 10%;
-    color: black;
+    color: brown;
 }
 .fields-container select{
     margin-bottom: 2%;
 }
 .fields-container div{
-    margin-top: 15%;
     width: 100%;
     text-align: center;
 }
@@ -68,4 +69,7 @@
     padding-right: 8%;
     border-radius: 3px;
     font-size: 10px;
+}
+table{
+    display: inline;
 }
