@@ -144,6 +144,7 @@ table tr{
     }
     .Doses-container{
         font-size: 12px;
+        font-weight: bold;
         padding-left: 0%;
         width: 100%;
     }
