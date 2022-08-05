@@ -1,5 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { HttpService } from '../services/http.service';
 import { LocalStorageService } from '../services/local-storage.service';
 import { PatientDetails } from '../services/patient-details';
@@ -14,7 +16,7 @@ export class SearchPatientComponent implements OnInit {
   patientsArray:PatientDetails[];
   sortedArray:PatientDetails[];
   @Output() patient:PatientDetails;
-  constructor( private http:HttpService, private localStorage:LocalStorageService, private router:Router) { }
+  constructor( private http:HttpService, public dialog: MatDialog, private localStorage:LocalStorageService, private router:Router) { }
 
   ngOnInit(): void {
        this.http.getPatients().subscribe((data)=>{
@@ -64,6 +66,23 @@ export class SearchPatientComponent implements OnInit {
                   console.log("Data test im Search patient\n"+JSON.stringify(patient));
                   localStorage.setItem("currentPatient",JSON.stringify(patient));
                   this.router.navigate(['/patientlist/patient']);            
+   }
+
+   deletePatient(patient){
+    console.log(patient)
+    let  dialogRef=this.dialog.open(DeleteDialogComponent,{width:"60%",height:"auto", data:patient});
+    dialogRef.afterClosed().subscribe((wantToDelete)=>{
+      if(wantToDelete){
+        this.http.deletePatient(patient._id).subscribe((res)=>{
+          if(res==true){
+             console.log("Successfully Deleted")
+          }
+          else{
+            console.log
+          }
+        })
+      }
+    })
    }
 
 }

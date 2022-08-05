@@ -44,5 +44,15 @@ router.put("/:id", async (req,res)=>{
         console.log("The server Exception is : "+exception)
     }  
 })
+router.delete("/:id",async(req, res)=>{
+    try{
+        result=await PatientSchema.findByIdAndDelete(req.params.id);
+        console.log(req.params.id)
+        res.send(true);
+    }catch(Exception){
+        res.send("Index.js Error: "+Exception)
+    }
+
+})
 module.exports=router;
 

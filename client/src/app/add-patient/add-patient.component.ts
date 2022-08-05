@@ -20,6 +20,7 @@ export class AddPatientComponent implements OnInit {
   number;
   gender;
   comment="";
+  city;
 
   constructor(private route:Router , private http:HttpService, private localStorageService:LocalStorageService, private dialog:MatDialog){
 
@@ -45,6 +46,10 @@ export class AddPatientComponent implements OnInit {
     }
     if(this.number==undefined || this.number<6000000000 || this.number>=10000000000){
       document.getElementById("number").style.border="1px solid red";
+      flag=1;
+    }
+    if(this.city==undefined || this.city.length<=2){
+      document.getElementById("city").style.border="1px solid red";
       flag=1;
     }
     if(flag==1)
@@ -97,6 +102,12 @@ checkFirstName(){
         
       
   }
+  checkCity(){
+    if(this.city==undefined || this.city.length<=2)
+      document.getElementById("city").style.boxShadow="0.5px 1px 1px 0px red";
+    else  
+    document.getElementById("city").style.boxShadow="0.5px 1px 1px 0px green";
+    }
 
 
 
@@ -105,6 +116,7 @@ checkFirstName(){
     document.getElementById("secondname").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("age").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("number").style.border="1px solid rgba(0, 0, 6, 0.151)";
+    document.getElementById("city").style.border="1px solid rgba(0, 0, 6, 0.151)";
   }
 
 }

@@ -138,4 +138,8 @@ select option:hover{
         padding-bottom: 6%;
         margin-left: 5%;
     }
+    div .comment{
+        margin-top: 10px;
+    
+    }
 }

@@ -14,6 +14,7 @@ import { VIewPatientComponent } from './view-patient/view-patient.component';
 import { DatePipe } from '@angular/common';
 import { AddDoseComponent } from './add-dose/add-dose.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AddPatientComponent,
     ItemAddedDialogComponent,
     VIewPatientComponent,
-    AddDoseComponent
+    AddDoseComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   
   providers: [DatePipe,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
-  entryComponents:[ItemAddedDialogComponent,AddDoseComponent]
+  entryComponents:[ItemAddedDialogComponent,AddDoseComponent, DeleteDialogComponent]
 })
 export class AppModule { }

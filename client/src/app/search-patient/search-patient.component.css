@@ -8,6 +8,14 @@
     background-color:  linear-gradient(150deg,rgb(3, 3, 63),blue,darkblue);
 
 }
+i{
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    height: 20px;
+    width: 20px;
+   color: brown;
+}
 
 .total-patients-container{
     width: fit-content;
@@ -71,6 +79,7 @@
     margin-bottom: 20%;
     margin-left: 5%;
     margin-right: 5%;
+    position: relative;
     
 }
 .patients-list div{
@@ -183,5 +192,13 @@
     margin: 0 auto;
 
 
+   }
+   i{
+    height: 2px;
+    width: 2px;
+    right: 15%;
+    position: absolute;
+    top: 5%;
+    color: rgb(5, 57, 78);
    }
   }

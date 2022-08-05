@@ -31,6 +31,11 @@
         <p>Phone Number</p>
         <input type="number" (input)="checkNumber()" id="number" [(ngModel)]="number"  placeholder="Number">
     </div>
+    <div>
+        <p>City</p>
+        <input type="text" (input)="checkCity()" id="city" [(ngModel)]="city" placeholder="Ex: Guntur">
+    </div>
+
     <div class="comment">
         <p>Comment</p>
         <textarea [(ngModel)]="comment" placeholder=" Anything about patient (Optional)"></textarea>

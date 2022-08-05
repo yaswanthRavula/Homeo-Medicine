@@ -14,6 +14,7 @@
 
 <div class="list-container">
         <div class="patients-list" *ngFor="let patient of sortedArray">
+            <i (click)="deletePatient(patient)" class="material-icons">delete</i>
             <div class="inner">
                 <h2>{{patient.firstname}}</h2>
                 <h3> {{patient.lastname}}  </h3>

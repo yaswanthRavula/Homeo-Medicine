@@ -22,5 +22,8 @@ APiUrl="https://murali-homeo.herokuapp.com/HomeoMedicine/patients";
     console.log(patientId)
     return this.http.put(this.APiUrl+"/"+patientId,patient);
   }
+  deletePatient(patientId){
+    return this.http.delete(this.APiUrl+"/"+patientId);
+  }
 
 }
