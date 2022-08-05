@@ -22,7 +22,8 @@ router.post("/", async (req,res)=>{
         phoneNumber: req.body.phoneNumber,
         joinedDate:req.body.joinedDate,
         description: req.body.description,
-        c:req.body.c,
+        city:req.body.city,
+        comment:req.body.comment,
     })
     console.log("hoii");
     await data.save();

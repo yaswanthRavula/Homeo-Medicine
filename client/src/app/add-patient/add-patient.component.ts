@@ -52,7 +52,7 @@ export class AddPatientComponent implements OnInit {
      return;
      this.normalColors();
      this.gender=(<HTMLInputElement>document.getElementById("gender")).value;
-     let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,c:this.comment,joinedDate:new Date(),description:null }
+     let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,city:this.city,comment:this.comment,joinedDate:new Date(),description:null }
     this.http.postPatient(patient).subscribe((data)=>{if(data){
                     this.showDialog(patient);
     }});
