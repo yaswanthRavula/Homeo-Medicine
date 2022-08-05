@@ -14,7 +14,7 @@ i{
     top: 3%;
     height: 20px;
     width: 20px;
-   color: brown;
+    color: rgb(5, 57, 78);
 }
 
 .total-patients-container{
@@ -201,4 +201,5 @@ i{
     top: 5%;
     color: rgb(5, 57, 78);
    }
+  
   }

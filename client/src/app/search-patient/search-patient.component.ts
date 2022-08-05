@@ -19,12 +19,7 @@ export class SearchPatientComponent implements OnInit {
   constructor( private http:HttpService, public dialog: MatDialog, private localStorage:LocalStorageService, private router:Router) { }
 
   ngOnInit(): void {
-       this.http.getPatients().subscribe((data)=>{
-          this.patientsArray=data;
-          this.patientsArray=this.patientsArray.reverse()
-          this.sortedArray=this.patientsArray;
-          this.noOfPatients=this.sortedArray.length;
-       })
+       this.getPatientsAndSort();
   }
 
 
@@ -75,14 +70,25 @@ export class SearchPatientComponent implements OnInit {
       if(wantToDelete){
         this.http.deletePatient(patient._id).subscribe((res)=>{
           if(res==true){
+             this.getPatientsAndSort();
              console.log("Successfully Deleted")
           }
           else{
-            console.log
+            
           }
         })
       }
     })
    }
 
+
+
+   getPatientsAndSort(){
+    this.http.getPatients().subscribe((data)=>{
+      this.patientsArray=data;
+      this.patientsArray=this.patientsArray.reverse()
+      this.sortedArray=this.patientsArray;
+      this.noOfPatients=this.sortedArray.length;
+    })
+}
 }

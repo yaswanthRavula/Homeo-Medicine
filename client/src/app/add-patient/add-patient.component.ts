@@ -17,7 +17,7 @@ export class AddPatientComponent implements OnInit {
   firstName;
   secondName="";
   age;
-  number;
+  number=0;
   gender;
   comment="";
   city;
@@ -42,10 +42,6 @@ export class AddPatientComponent implements OnInit {
     }
     if(this.age==undefined || this.age.length<=0 ||this.age >=150){
       document.getElementById("age").style.border="1px solid red";
-      flag=1;
-    }
-    if(this.number==undefined || this.number<6000000000 || this.number>=10000000000){
-      document.getElementById("number").style.border="1px solid red";
       flag=1;
     }
     if(this.city==undefined || this.city.length<=2){
@@ -91,15 +87,6 @@ checkFirstName(){
       document.getElementById("age").style.boxShadow="0.5px 1px 1px 0px red";
      else
      document.getElementById("age").style.boxShadow="0.5px 1px 1px 0px green";
-      
-  }
-
-  checkNumber(){
-    if(this.number==undefined || this.number<6000000000 || this.number>=10000000000)
-      document.getElementById("number").style.boxShadow="0.5px 1px 1px 0px red";
-      else 
-      document.getElementById("number").style.boxShadow="0.5px 1px 1px 0px green";
-        
       
   }
   checkCity(){

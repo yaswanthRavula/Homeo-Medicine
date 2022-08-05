@@ -25,4 +25,5 @@ export class AppComponent {
   goToAddPatient(){
     this.route.navigate(['/add']);
   }
+  
 }
