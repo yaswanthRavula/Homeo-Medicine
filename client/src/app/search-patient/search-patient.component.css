@@ -9,6 +9,7 @@
 
 }
 i{
+    cursor: pointer;
     position: absolute;
     right: 3%;
     top: 3%;
@@ -194,6 +195,7 @@ i{
 
    }
    i{
+    cursor: pointer;
     height: 2px;
     width: 2px;
     right: 15%;
