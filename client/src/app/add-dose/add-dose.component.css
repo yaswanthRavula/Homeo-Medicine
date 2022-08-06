@@ -73,3 +73,17 @@
 table{
     display: inline;
 }
+@media screen and (max-width: 900px) {
+   
+    .container{
+        top: 10vh;
+        height: 50vh;
+        padding-top: 5%;
+        padding-bottom: 20% !important;
+        
+    }
+    .container .close{
+        margin-bottom: 20vh;
+    }
+  
+}
