@@ -19,9 +19,12 @@ margin-top: 1%;
 margin-left: 1%;
 padding-left: 1%;
 }
-.patient-header p{
-    margin-left: 4%;
+.patient-header p, span{
+    margin-left: 2%;
     margin-top: 5%;
+}
+.patient-header p{
+    width: 70%;
 }
 .patient-header h1{
     width: 40%;
@@ -53,6 +56,7 @@ p{
     color: lightgrey;
     width: max-content;
 }
+
 .add-container{
     display: flex;
     margin: 1%;
@@ -176,5 +180,8 @@ table tr{
     }
     .heading{
         opacity: 0;
+    }
+    .patient-header p{
+        width: 75%;
     }
 }

@@ -21,6 +21,9 @@ export class AddPatientComponent implements OnInit {
   gender;
   comment="";
   city;
+  sugar;
+  bp;
+  thyroid;
 
   constructor(private route:Router , private http:HttpService, private localStorageService:LocalStorageService, private dialog:MatDialog){
 
@@ -51,7 +54,15 @@ export class AddPatientComponent implements OnInit {
     if(flag==1)
      return;
      this.normalColors();
-     this.gender=(<HTMLInputElement>document.getElementById("gender")).value;
+     this.sugar=(<HTMLInputElement>document.getElementById("Sugar")).checked;
+     this.bp=(<HTMLInputElement>document.getElementById("BP")).checked;
+     this.thyroid=(<HTMLInputElement>document.getElementById("Thyroid")).checked;
+     if(this.sugar==true)
+         this.comment="Sugar,\n"+this.comment;
+     if(this.bp==true)
+         this.comment="BP,\n"+this.comment;
+    if(this.thyroid==true)
+          this.comment="Thyroid,\n"+this.comment;        
      let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,city:this.city,comment:this.comment,joinedDate:new Date(),description:null }
     this.http.postPatient(patient).subscribe((data)=>{if(data){
                     this.showDialog(patient);
