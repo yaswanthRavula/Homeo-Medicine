@@ -6,6 +6,8 @@
             <p>Age : {{patient.age}} Years</p>
             <p> Gender : {{patient.gender}}</p>
             <p>City : {{patient.city}}</p>
+
+            <p *ngIf="(patient.phoneNumber)>=6000000000">Phone : {{patient.phoneNumber}}</p>
         
     </div>
     <div style="display: flex;">
