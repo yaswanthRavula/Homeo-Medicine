@@ -53,6 +53,7 @@ export class AddPatientComponent implements OnInit {
     }
     if(flag==1)
      return;
+     this.gender=(<HTMLInputElement>(document.getElementById("gender"))).value;
      this.normalColors();
      this.sugar=(<HTMLInputElement>document.getElementById("Sugar")).checked;
      this.bp=(<HTMLInputElement>document.getElementById("BP")).checked;
