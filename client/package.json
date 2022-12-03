@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "node index.js",
     "build": "ng build --prod",
-    "test": "ng test",
-    "heroku-postbuild": "ng build"
+    "test": "ng test"
   },
   "dependencies": {
     "@angular/animations": "^14.0.5",
