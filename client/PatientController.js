@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 const express=require('express');
 const router= express.Router();
-const PatientSchema=require('../model/PatientSchema');
+const PatientSchema=require('../PatientSchema');
 router.get("/", async (req,res)=>{
     try{
      const data= await PatientSchema.find();
