@@ -7,7 +7,7 @@ import { PatientDetails } from './patient-details';
   providedIn: 'root'
 })
 export class HttpService {
-APiUrl="https://murali-homeo.netlify.app/HomeoMedicine/patients";
+APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
   constructor(private http:HttpClient ) { }
 
   postPatient(patient: PatientDetails){
