@@ -1,15 +1,12 @@
 const express= require('express');
-const path=require('path');
 const app=express();
-app.use(express.static(__dirname+'/dist/client'))
+app.use(express.json({extended:false}))
 const cors=require('cors');
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 app.use(cors())
 app.use(bodyParser.json());
-app.get('/', (req,res)=>{
-    res.sendFile(path.join('/dist/client/index.html'))
-})
+
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
