@@ -7,9 +7,8 @@ import { PatientDetails } from './patient-details';
   providedIn: 'root'
 })
 export class HttpService {
-//APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
-APiUrl="http://localhost:3000/HomeoMedicine/patients"
-testingUrl="https://localhost:3000/HomeoMedicine/patients";
+APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
+//for testing---->APiUrl="http://localhost:3000/HomeoMedicine/patients"
 
   constructor(private http:HttpClient ) { }
 
