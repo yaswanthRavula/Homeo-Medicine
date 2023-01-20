@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../services/http.service';
-import { LocalStorageService } from '../services/local-storage.service';
-import { PatientDetails } from '../services/patient-details';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import { ItemAddedDialogComponent } from '../item-added-dialog/item-added-dialog.component';
-import { config } from 'rxjs';
 import { Route, Router } from '@angular/router';
+import { Description } from '../services/description';
+import { HttpService } from '../services/http.service';
+import { PatientDetails } from '../services/patient-details';
 
 @Component({
-  selector: 'app-add-patient',
-  templateUrl: './add-patient.component.html',
-  styleUrls: ['./add-patient.component.css']
+  selector: 'app-update-patient',
+  templateUrl: './update-patient.component.html',
+  styleUrls: ['./update-patient.component.css']
 })
-export class AddPatientComponent implements OnInit {
-
+export class UpdatePatientComponent implements OnInit {
   firstName;
   secondName="";
   age;
@@ -24,15 +20,24 @@ export class AddPatientComponent implements OnInit {
   sugar;
   bp;
   thyroid;
+  patient;
 
-  constructor(private route:Router , private http:HttpService, private localStorageService:LocalStorageService, private dialog:MatDialog){
+  constructor( private route:Router, private http:HttpService) { }
 
-  }
   ngOnInit(): void {
+    this.patient=JSON.parse(localStorage.getItem("currentPatient"));
+    this.firstName=this.patient.firstname;
+    this.secondName=this.patient.lastname;
+    this.age=this.patient.age;
+    this.number=this.patient.phoneNumber;
+    this.gender=this.patient.gender;
+    this.city=this.patient.city;
+    this.comment=this.patient.comment;
+    
   }
 
-  //---------------------------when you clcik on submit (Add Patient) Button in form-----------------------------
-  addPatient(){
+
+  updatePatient(){
     this.normalColors();
     let flag=0;
     if(this.firstName==undefined || this.firstName.length<=2){
@@ -64,18 +69,19 @@ export class AddPatientComponent implements OnInit {
          this.comment="BP,\n"+this.comment;
     if(this.thyroid==true)
           this.comment="Thyroid,\n"+this.comment;        
-     let patient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,city:this.city,comment:this.comment,joinedDate:new Date(),description:null }
-    this.http.postPatient(patient).subscribe((data)=>{if(data){
-                    this.showDialog(patient);
+     let updatedPatient:PatientDetails={firstname:this.firstName, lastname:this.secondName, age:this.age, gender:this.gender, phoneNumber:this.number,city:this.city,comment:this.comment,joinedDate:this.patient.joinedDate,description:this.patient.description }
+    this.http.updatePatient(this.patient._id,updatedPatient).subscribe((data)=>{
+              if(data){
+                    this.showDialog(updatedPatient);
     }});
   }
 
 
   showDialog(patient:PatientDetails){
-        var dialogRef=this.dialog.open(ItemAddedDialogComponent,{autoFocus:true, data:patient});
-       dialogRef.afterClosed().subscribe(()=>{this.route.navigate(['/patientlist'])});
-        
-
+    alert("Patient Details Updated!");
+    this.route.navigate(['/patientlist'])
+    
+       
   }
 
 //--------------------------------------TO check Input field values of the add patient form-----------------------
@@ -111,12 +117,12 @@ checkFirstName(){
 
 
   normalColors(){
-    
     document.getElementById("firstname").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("secondname").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("age").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("number").style.border="1px solid rgba(0, 0, 6, 0.151)";
     document.getElementById("city").style.border="1px solid rgba(0, 0, 6, 0.151)";
   }
+
 
 }

@@ -1,5 +1,6 @@
 
 <div class="patient-header">
+    <i class="fa-solid fa-pen-to-square" (click)="updatePatient(patient)"></i>
     <h1>{{patient.firstname}}</h1>
     <h1> {{patient.lastname}}</h1>
     <div class="outer-details-container">
@@ -13,7 +14,6 @@
     <div style="display: flex;">
         <span style=" font-size: 12px; color: #fff;">Comment : </span>
         <p style="color: rgb(249, 242, 100);">{{patient.comment}}</p>
-        <i class="icon-edit"></i> icon-edit
 
     </div>
    

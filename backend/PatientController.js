@@ -3,7 +3,9 @@ const express=require('express');
 const router= express.Router();
 const PatientSchema=require('./PatientSchema');
 router.get("/", async (req,res)=>{
+    
     try{
+     console.log("Get called")
      const data= await PatientSchema.find();
      res.send(data);
     }catch(err){
@@ -22,7 +24,7 @@ router.post("/", async (req,res)=>{
         phoneNumber: req.body.phoneNumber,
         joinedDate:req.body.joinedDate,
         description: req.body.description,
-        city:req.body.city,
+        city:req.body.city,  
         comment:req.body.comment,
     })
     console.log("hoii");
@@ -34,11 +36,19 @@ router.post("/", async (req,res)=>{
     }
 })
 
-router.put("/:id", async (req,res)=>{
+router.patch("/:id", async (req,res)=>{
+  
     try{
     let pat= new PatientSchema;
     pat=await PatientSchema.findById(req.params.id);
-    pat.description=req.body.description;
+    pat.firstname= req.body.firstname,
+    pat.lastname= req.body.lastname,
+    pat.age=req.body.age,
+    pat.gender= req.body.gender,
+    pat.phoneNumber= req.body.phoneNumber,
+    pat.comment=req.body.comment;
+    pat.city=req.body.city;
+    console.log("Id is : ",req.params.id);
     await pat.save();
     res.send(true);
     }catch(exception){

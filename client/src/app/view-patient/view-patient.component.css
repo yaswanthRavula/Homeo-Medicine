@@ -140,6 +140,13 @@ p{
 table tr{
     border-bottom: 1px solid rgba(246, 202, 8, 0.578);
 }
+i{
+    color: yellow;
+    width: 100%;
+    text-align: right;
+    right: 0;
+    opacity: 1;
+}
 @media screen and (max-width: 900px) {
     .Data-container h1{
         font-size: 12px;

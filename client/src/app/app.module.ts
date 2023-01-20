@@ -15,6 +15,7 @@ import { DatePipe } from '@angular/common';
 import { AddDoseComponent } from './add-dose/add-dose.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { UpdatePatientComponent } from './update-patient/update-patient.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     ItemAddedDialogComponent,
     VIewPatientComponent,
     AddDoseComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    UpdatePatientComponent,
   ],
   imports: [
     BrowserModule,

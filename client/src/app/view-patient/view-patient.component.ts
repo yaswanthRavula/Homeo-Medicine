@@ -65,4 +65,11 @@ export class VIewPatientComponent implements OnInit {
   });
   }
 
+  //------------this method is called when user clicks on edit patient icon
+  updatePatient(patient:PatientDetails){
+    localStorage.setItem("currentPatient",JSON.stringify(patient));
+    alert("Testing Update Patient"+ localStorage.getItem("currentPatient"))
+    this.router.navigate(['/update-patient'])
+  }
+
 }

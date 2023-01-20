@@ -7,7 +7,10 @@ import { PatientDetails } from './patient-details';
   providedIn: 'root'
 })
 export class HttpService {
-APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
+//APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
+APiUrl="http://localhost:3000/HomeoMedicine/patients"
+testingUrl="https://localhost:3000/HomeoMedicine/patients";
+
   constructor(private http:HttpClient ) { }
 
   postPatient(patient: PatientDetails){
@@ -18,8 +21,8 @@ APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
     return this.http.get<PatientDetails[]>(this.APiUrl);
   }
   updatePatient( patientId,patient:PatientDetails){
-    console.log(patientId)
-    return this.http.put(this.APiUrl+"/"+patientId,patient);
+    console.log(patientId);
+    return this.http.patch(this.APiUrl+"/"+patientId,patient);
   }
   deletePatient(patientId){
     return this.http.delete(this.APiUrl+"/"+patientId);
