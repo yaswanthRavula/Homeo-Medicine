@@ -8,6 +8,7 @@ import { LocalStorageService } from '../services/local-storage.service';
 import { Router } from '@angular/router';
 import { SearchPatientComponent } from '../search-patient/search-patient.component';
 import { HttpService } from '../services/http.service';
+import { UpdateDoseComponent } from '../update-dose/update-dose.component';
 
 @Component({
   selector: 'app-view-patient',
@@ -23,8 +24,8 @@ export class VIewPatientComponent implements OnInit {
 
   ngOnInit(): void {
     this.patient=JSON.parse(localStorage.getItem("currentPatient"));
+    console.log("1.Patient Details after view ----",this.patient)
     this.description=this.patient.description;
-    console.log(this.description)
     if(this.description==null){
       this.description=[];
     }
@@ -39,16 +40,15 @@ export class VIewPatientComponent implements OnInit {
     d=res;
     if(d!=undefined && d.length>0){
       d.forEach((elem)=>{
-        console.log("testing dose date just after sub: \n"+elem.doseDate)
         this.description.push(elem); 
       })
     
     this.patient.description=this.description;
     let p:PatientDetails=this.patient;
     this.http.updatePatient(this.patient._id,p).subscribe((res)=>{
-      console.log(res)
-    },(err)=>{  
-      console.log("The error is : "+err.message)
+         if(res==true){
+          localStorage.setItem("currentPatient",JSON.stringify(p));
+         }
     })}
     this.getUniqueDates();
 
@@ -60,7 +60,6 @@ export class VIewPatientComponent implements OnInit {
   getUniqueDates(){
     if(this.description!=null)
     this.description.filter((desc)=>{
-    console.log(this.pipe.transform(desc.doseDate,"mediumDate"))
     this.uniqueDatesSet.add(this.pipe.transform(desc.doseDate,"mediumDate"));
   });
   }
@@ -68,8 +67,11 @@ export class VIewPatientComponent implements OnInit {
   //------------this method is called when user clicks on edit patient icon
   updatePatient(patient:PatientDetails){
     localStorage.setItem("currentPatient",JSON.stringify(patient));
-   
     this.router.navigate(['/update-patient'])
   }
 
+  updateDose(dose){
+    var dialogRef=this.matDialog.open(UpdateDoseComponent ,{autoFocus:true,width:'80%', data:dose})
+    dialogRef.afterClosed();
+  }
 }
