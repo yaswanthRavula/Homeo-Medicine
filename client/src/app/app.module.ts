@@ -16,6 +16,7 @@ import { AddDoseComponent } from './add-dose/add-dose.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
+import { UpdateDoseComponent } from './update-dose/update-dose.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
     AddDoseComponent,
     DeleteDialogComponent,
     UpdatePatientComponent,
+    UpdateDoseComponent,
   ],
   imports: [
     BrowserModule,

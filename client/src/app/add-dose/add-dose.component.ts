@@ -25,6 +25,9 @@ export class AddDoseComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  
   onAddDoseClicked(){
     this.doseName_6=(<HTMLInputElement>document.getElementById("doseName-6")).value.split(",")
     this.doseName_30=(<HTMLInputElement>document.getElementById("doseName-30")).value.split(",")

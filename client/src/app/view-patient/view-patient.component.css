@@ -148,6 +148,13 @@ i{
     opacity: 1;
     cursor: pointer;
 }
+#editDose{
+    margin-left: 200%;
+    color: blue;
+    width: 14px;
+    opacity: 0.3;
+    cursor: pointer;
+}
 @media screen and (max-width: 900px) {
     .Data-container h1{
         font-size: 12px;
@@ -157,6 +164,7 @@ i{
         font-weight:bold;
 
     }
+    
     .Doses-container{
         font-size: 12px;
         font-weight: bold;
@@ -191,5 +199,9 @@ i{
     }
     .patient-header p{
         width: 75%;
+    }
+    #editDose{
+        width: 9px;
+        margin-left: 150%;
     }
 }

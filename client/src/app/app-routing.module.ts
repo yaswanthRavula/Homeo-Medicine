@@ -14,6 +14,7 @@ const routes: Routes = [
    {path:'patientlist/patient',component:VIewPatientComponent},
    {path:'update-patient',component:UpdatePatientComponent},
    {path:'',pathMatch:"full",redirectTo:'patientlist'}
+
 ];
 
 @NgModule({

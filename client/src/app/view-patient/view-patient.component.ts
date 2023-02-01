@@ -33,10 +33,10 @@ export class VIewPatientComponent implements OnInit {
             // console.log(this.uniqueDatesSet.size)*/
   }
 
-  addDoseClicked(){
+   addDoseClicked(){
     let d:Description[]=[];
    let dialogConfig= this.matDialog.open(AddDoseComponent,{autoFocus:true,width:'80%', data:d});
-   dialogConfig.afterClosed().subscribe((res)=>{
+   dialogConfig.afterClosed().subscribe(async (res)=>{
     d=res;
     if(d!=undefined && d.length>0){
       d.forEach((elem)=>{
@@ -44,12 +44,18 @@ export class VIewPatientComponent implements OnInit {
       })
     
     this.patient.description=this.description;
+    
+    console.log("1--------", this.patient.description);
     let p:PatientDetails=this.patient;
-    this.http.updatePatient(this.patient._id,p).subscribe((res)=>{
-         if(res==true){
-          localStorage.setItem("currentPatient",JSON.stringify(p));
-         }
-    })}
+   await this.http.updatePatient(this.patient._id,this.patient).subscribe( (res)=>{
+    console.log("\n\n\n",res)
+    localStorage.setItem("currentPatient",JSON.stringify(p));
+   },(error)=>{console.log(error.message)});
+   
+   
+  }
+
+    
     this.getUniqueDates();
 
    })

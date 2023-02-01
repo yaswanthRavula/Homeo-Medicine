@@ -1,0 +1,16 @@
+<div class="container">
+    <p Heading></p>
+    <input type="text" [(ngModel)]="doseName" class="doseName">
+    <select [(ngModel)]="dosePower" class="dosePower">
+        <option value="6">6</option>
+        <option value="30">30</option>
+        <option value="200">200</option>
+        <option value="1M">1M</option>
+        <option value="10M">10M</option>
+        <option value="MOT">MOT</option>
+        <option value="6x">6x</option>
+        <option value="OTH">OTH</option>
+    </select>
+    <button (click)="updateDose()">Update</button>
+    <p (click)="dismissDialog()">Cancel</p>
+</div>
