@@ -36,7 +36,7 @@ router.post("/", async (req,res)=>{
     }
 })
 
-router.patch("/:id", async (req,res)=>{
+router.put("/:id", async (req,res)=>{
   
     try{
     let pat= new PatientSchema;
@@ -48,7 +48,8 @@ router.patch("/:id", async (req,res)=>{
     pat.phoneNumber= req.body.phoneNumber,
     pat.comment=req.body.comment;
     pat.city=req.body.city;
-    console.log("Id is : ",req.params.id);
+    pat.description=req.body.description;
+    console.log(pat.description)
     await pat.save();
     res.send(true);
     }catch(exception){
