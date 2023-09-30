@@ -17,6 +17,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
 import { UpdateDoseComponent } from './update-dose/update-dose.component';
+import { IrregularPatientsComponent } from './irregular-patients/irregular-patients.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { UpdateDoseComponent } from './update-dose/update-dose.component';
     DeleteDialogComponent,
     UpdatePatientComponent,
     UpdateDoseComponent,
+    IrregularPatientsComponent,
   ],
   imports: [
     BrowserModule,

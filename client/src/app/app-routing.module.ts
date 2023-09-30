@@ -7,9 +7,11 @@ import { ItemAddedDialogComponent } from './item-added-dialog/item-added-dialog.
 import { SearchPatientComponent } from './search-patient/search-patient.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
 import { VIewPatientComponent } from './view-patient/view-patient.component';
+import { IrregularPatientsComponent } from './irregular-patients/irregular-patients.component';
 
 const routes: Routes = [
    {path:'add', component: AddPatientComponent},
+   {path:'irregular-patients', component:IrregularPatientsComponent},
    {path:'patientlist',component: SearchPatientComponent},
    {path:'patientlist/patient',component:VIewPatientComponent},
    {path:'update-patient',component:UpdatePatientComponent},
@@ -18,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

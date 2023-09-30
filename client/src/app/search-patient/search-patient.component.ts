@@ -40,12 +40,12 @@ export class SearchPatientComponent implements OnInit {
           if(patient.firstname.toLowerCase().includes(searchedText.toLowerCase()))
               return patient;
           else if(patient.lastname.toLowerCase().includes(searchedText.toLowerCase()))
-               return patient;   
-          else 
-             return null;    
+               return patient;
+          else
+             return null;
          })
          console.log(this.sortedArray)
-         this.noOfPatients=this.sortedArray.length;    
+         this.noOfPatients=this.sortedArray.length;
   }
 
 
@@ -60,7 +60,7 @@ export class SearchPatientComponent implements OnInit {
                   this.localStorage.storeInLocalStorage(patient);
                   console.log("Data test im Search patient\n"+JSON.stringify(patient));
                   localStorage.setItem("currentPatient",JSON.stringify(patient));
-                  this.router.navigate(['/patientlist/patient']);            
+                  this.router.navigate(['/patientlist/patient']);
    }
 
    deletePatient(patient){
@@ -74,7 +74,7 @@ export class SearchPatientComponent implements OnInit {
              console.log("Successfully Deleted")
           }
           else{
-            
+
           }
         })
       }
@@ -84,11 +84,20 @@ export class SearchPatientComponent implements OnInit {
 
 
    getPatientsAndSort(){
-    this.http.getPatients().subscribe((data)=>{
+    this.http.getInitialPatients().subscribe((data)=>{
       this.patientsArray=data;
       this.patientsArray=this.patientsArray.reverse()
       this.sortedArray=this.patientsArray;
-      this.noOfPatients=this.sortedArray.length;
+      this.noOfPatients='-';
     })
+    this.http.getPatients().subscribe((data)=>{
+      let tempArray = this.patientsArray.reverse();
+      tempArray=data.reverse().concat(tempArray);
+      this.sortedArray=tempArray;
+      this.patientsArray=tempArray;
+      this.noOfPatients=this.sortedArray.length;
+
+    })
+
 }
 }

@@ -6,7 +6,7 @@ router.get("/", async (req,res)=>{
     
     try{
      console.log("Get called")
-     const data= await PatientSchema.find();
+     const data= await PatientSchema.find().skip(100);
      res.send(data);
     }catch(err){
         res.send("Error From Backend Server : "+err);
@@ -56,6 +56,20 @@ router.put("/:id", async (req,res)=>{
         console.log("The server Exception is : "+exception)
     }  
 })
+router.post("/deleteIds",async (req,res)=>{
+    try{
+        console.log("Entering delete by Ids");
+        console.log(req.body);
+        result = await PatientSchema.deleteMany({_id:{$in:req.body}});
+        console.log(result);
+        res.send(true);
+       }catch(err){
+        
+           res.send("Error From Backend Server : "+err);
+       }
+})
+
+
 router.delete("/:id",async(req, res)=>{
     try{
         result=await PatientSchema.findByIdAndDelete(req.params.id);
@@ -65,6 +79,23 @@ router.delete("/:id",async(req, res)=>{
         res.send("Index.js Error: "+Exception)
     }
 
+})
+router.get("/initial",async(req,res)=>{
+    try{
+       const data= await PatientSchema.find().limit(100);
+        res.send(data);
+       }catch(err){
+           res.send("Error From Backend Server : "+err);
+       }
+})
+
+router.get("/irregular", async(req,res)=>{
+    try{
+        const data= await PatientSchema.find();
+        res.send(data);
+       }catch(err){
+           res.send("Error From Backend Server : "+err);
+       }
 })
 module.exports=router;
 

@@ -8,7 +8,7 @@ import { PatientDetails } from './patient-details';
 })
 export class HttpService {
 APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
-//for testing----> APiUrl="http://localhost:3000/HomeoMedicine/patients"
+//for testing---->APiUrl="http://localhost:3000/HomeoMedicine/patients"
 
   constructor(private http:HttpClient ) { }
 
@@ -16,16 +16,25 @@ APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
     return this.http.post(this.APiUrl,patient);
   }
 
+  getInitialPatients():Observable<PatientDetails[]>{
+    return this.http.get<PatientDetails[]>(this.APiUrl+"/initial");
+  }
   getPatients():Observable<PatientDetails[]>{
     return this.http.get<PatientDetails[]>(this.APiUrl);
   }
   updatePatient( patientId,patient:PatientDetails){
     console.log(patientId);
     return this.http.put(this.APiUrl+"/"+patientId,patient);
-    
+
   }
   deletePatient(patientId){
     return this.http.delete(this.APiUrl+"/"+patientId);
   }
+  getAllIrregularPatients(){
+    return this.http.get(this.APiUrl+"/irregular");
+  }
 
+  deletePatientsBasedbyIds(idsList:any[]){
+    return this.http.post(this.APiUrl+"/deleteIds", idsList.slice(0, 2));
+  }
 }

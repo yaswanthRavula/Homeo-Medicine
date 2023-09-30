@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Irregular Patients</h1>
+  <p>Patients whose last visit to you is exactly/more than one year.</p>
+  <div class="icons-container">
+    <div (click)="deleteAll()" class="delete-all">
+      <i id="delete-id" class="material-icons">delete</i>
+      <p>Delete All</p>
+    </div>
+    <!--<div (click)="onSelectAllClicked()" class="select-all">
+      <i id="delete-id" *ngIf="!selectAllFlag" class="material-icons">check_box</i>
+      <i class="material-icons" *ngIf="selectAllFlag"  >check_box_outline_blank</i>
+      <p *ngIf="selectAllFlag" >Select All</p>
+      <p  *ngIf="!selectAllFlag" >UnSelect All</p>
+    </div>-->
+  </div>
+
+  <div class="list-container">
+   <div class="patients-list" *ngFor="let patient of sortedArray; let i as index">
+        <i class="material-icons" style="visibility: hidden;" id="uncheckbox-{{i}}" (click)="onUnSelectedPatient(i)">check_box_outline_blank</i>
+        <i class="material-icons"  id="checkbox-{{i}}" (click)="onSelectedPatient(i)">check_box</i>
+        <div class="inner">
+            <h2>{{patient.firstname}}</h2>
+            <h3> {{patient.lastname}}  </h3>
+            <p>Joined on : {{patient.joinedDate | date}}</p>
+            <p>Age : {{patient.age}}</p>
+            <p>Gender : {{patient.gender}}</p>
+        </div>
+        <button (click)="showPatient(patient)">Show Patient</button>
+    </div>
+</div>
+
+</div>
