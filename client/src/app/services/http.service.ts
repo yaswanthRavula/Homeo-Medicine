@@ -35,6 +35,6 @@ APiUrl="https://homeo-medicine-ep67.vercel.app/HomeoMedicine/patients";
   }
 
   deletePatientsBasedbyIds(idsList:any[]){
-    return this.http.post(this.APiUrl+"/deleteIds", idsList.slice(0, 2));
+    return this.http.post(this.APiUrl+"/deleteIds", idsList);
   }
 }

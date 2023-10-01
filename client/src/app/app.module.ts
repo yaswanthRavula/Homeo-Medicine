@@ -18,6 +18,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
 import { UpdateDoseComponent } from './update-dose/update-dose.component';
 import { IrregularPatientsComponent } from './irregular-patients/irregular-patients.component';
+import { PatientsNowComponent } from './patients-now/patients-now.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { IrregularPatientsComponent } from './irregular-patients/irregular-patie
     UpdatePatientComponent,
     UpdateDoseComponent,
     IrregularPatientsComponent,
+    PatientsNowComponent,
   ],
   imports: [
     BrowserModule,

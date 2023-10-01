@@ -14,7 +14,7 @@
     </div>-->
   </div>
 
-  <div class="list-container">
+  <div class="list-container" *ngIf="!isLoading">
    <div class="patients-list" *ngFor="let patient of sortedArray; let i as index">
         <i class="material-icons" style="visibility: hidden;" id="uncheckbox-{{i}}" (click)="onUnSelectedPatient(i)">check_box_outline_blank</i>
         <i class="material-icons"  id="checkbox-{{i}}" (click)="onSelectedPatient(i)">check_box</i>
@@ -28,5 +28,7 @@
         <button (click)="showPatient(patient)">Show Patient</button>
     </div>
 </div>
+
+<progress *ngIf="isLoading"></progress>
 
 </div>

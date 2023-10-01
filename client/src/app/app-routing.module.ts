@@ -8,6 +8,7 @@ import { SearchPatientComponent } from './search-patient/search-patient.componen
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
 import { VIewPatientComponent } from './view-patient/view-patient.component';
 import { IrregularPatientsComponent } from './irregular-patients/irregular-patients.component';
+import { PatientsNowComponent } from './patients-now/patients-now.component';
 
 const routes: Routes = [
    {path:'add', component: AddPatientComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
    {path:'patientlist',component: SearchPatientComponent},
    {path:'patientlist/patient',component:VIewPatientComponent},
    {path:'update-patient',component:UpdatePatientComponent},
+   {path:'patients-today', component:PatientsNowComponent},
    {path:'',pathMatch:"full",redirectTo:'patientlist'}
 
 ];

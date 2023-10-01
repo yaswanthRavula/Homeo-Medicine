@@ -13,7 +13,8 @@ export class IrregularPatientsComponent implements OnInit {
  sortedArray:PatientDetails[];
   selectAllFlag=true;
   patientIds=[];
-  patientsArray=[]
+  patientsArray=[];
+  isLoading=true;
   constructor(private http:HttpService,private localStorage:LocalStorageService, private router:Router) { }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class IrregularPatientsComponent implements OnInit {
   }
 
   async getAllPatients(){
+    this.isLoading=true;
     this.http.getInitialPatients().subscribe((data)=>{
       this.patientsArray=data;
      this.sortedArray=this.patientsArray;
@@ -68,6 +70,7 @@ export class IrregularPatientsComponent implements OnInit {
       new Date(ele.description[ele.description.length-1].doseDate).getMonth()< date.getMonth())
     })
     console.log(this.sortedArray.length)
+    this.isLoading=false;
   }
 
   showPatient(patient:PatientDetails){
