@@ -1,0 +1,6 @@
+com\example\demo\DemoApplication.class
+com\example\demo\Model\Patient.class
+com\example\demo\Model\PatientShor.class
+com\example\demo\Model\Description.class
+com\example\demo\Controllers\PatientController.class
+com\example\demo\PatientsRepository.class

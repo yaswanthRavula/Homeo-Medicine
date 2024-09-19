@@ -1,0 +1,34 @@
+Endpoints We need to Add in Homeo
+
+
+1. Fetch All Patients:
+	Endpoint : "/"
+	Get Call
+
+
+
+2. Add New Patient 
+	Endpoint : "/"
+`	Post Call
+
+
+
+3. Update Patient
+	Endpoint : "/:id"
+	PUT Call
+
+
+4. Deleting Multiple Patients By Ids provided
+	Endpoint : "/deleteIds"
+	POST Call
+
+
+5. Delete Patient By id
+	Endpoint : "/:id"
+	DELETE Call
+
+
+6. Get Irregular Patients
+	Endpoint : "/irregular"
+	GET Call
+
