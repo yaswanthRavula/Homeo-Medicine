@@ -5,6 +5,7 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 import { HttpService } from '../services/http.service';
 import { LocalStorageService } from '../services/local-storage.service';
 import { PatientDetails } from '../services/patient-details';
+import { PatientShort } from '../services/patient-short';
 
 @Component({
   selector: 'app-search-patient',
@@ -13,13 +14,13 @@ import { PatientDetails } from '../services/patient-details';
 })
 export class SearchPatientComponent implements OnInit {
   noOfPatients:any=0;
-  patientsArray:PatientDetails[];
-  sortedArray:PatientDetails[];
+  patientsArray=[];
+  sortedArray=[];
   @Output() patient:PatientDetails;
   constructor( private http:HttpService, public dialog: MatDialog, private localStorage:LocalStorageService, private router:Router) { }
 
   ngOnInit(): void {
-       this.getPatientsAndSort();
+       this.getPatients();
   }
 
 
@@ -56,11 +57,16 @@ export class SearchPatientComponent implements OnInit {
 
 
 
-   showPatient(patient:PatientDetails){
-                  this.localStorage.storeInLocalStorage(patient);
-                  console.log("Data test im Search patient\n"+JSON.stringify(patient));
-                  localStorage.setItem("currentPatient",JSON.stringify(patient));
-                  this.router.navigate(['/patientlist/patient']);
+   showPatient(patient){
+                  console.log(patient._id);
+                   this.http.getPatientById(patient._id).subscribe((res:PatientDetails)=>{
+                    let tempPatient = res;
+                    this.localStorage.storeInLocalStorage(tempPatient);
+                    console.log("Data test im Search patient\n"+JSON.stringify(tempPatient));
+                    localStorage.setItem("currentPatient",JSON.stringify(tempPatient));
+                    this.router.navigate(['/patientlist/patient']);
+                  })
+                 
    }
 
    deletePatient(patient){
@@ -70,7 +76,7 @@ export class SearchPatientComponent implements OnInit {
       if(wantToDelete){
         this.http.deletePatient(patient._id).subscribe((res)=>{
           if(res==true){
-             this.getPatientsAndSort();
+             this.getPatients();
              console.log("Successfully Deleted")
           }
           else{
@@ -83,21 +89,20 @@ export class SearchPatientComponent implements OnInit {
 
 
 
-   getPatientsAndSort(){
-    this.http.getInitialPatients().subscribe((data)=>{
-      this.patientsArray=data;
-      this.patientsArray=this.patientsArray.reverse()
-      this.sortedArray=this.patientsArray;
-      this.noOfPatients='-';
-    })
-    this.http.getPatients().subscribe((data)=>{
-      let tempArray = this.patientsArray.reverse();
-      tempArray=data.reverse().concat(tempArray);
-      this.sortedArray=tempArray;
-      this.patientsArray=tempArray;
+   getPatients(){
+    this.http.getPatients().subscribe((data:any)=>{
+      this.sortedArray=data;
       this.noOfPatients=this.sortedArray.length;
+      console.log(this.sortedArray)
 
     })
 
+}
+getPatientsBySearch(){
+  let searchedText=(<HTMLInputElement>document.getElementById("search")).value;
+  this.http.getPatientsByName(searchedText).subscribe((res:any)=>{
+    this.sortedArray = res;
+    this.noOfPatients = res.length;
+  })
 }
 }

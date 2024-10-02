@@ -13,7 +13,7 @@ import com.example.demo.Model.Patient;
 import com.example.demo.Model.PatientShor;
 
 @Repository
-public interface PatientsRepository extends MongoRepository<Patient, BigInteger> {
+public interface PatientsRepository extends MongoRepository<Patient, String> {
 
 	public List<PatientShor> findBy(Pageable pageable);
 	@Query("{}")

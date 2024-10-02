@@ -1,0 +1,16 @@
+.container{
+    padding:2px;
+    margin-top: 5%;
+}
+
+.header{
+    background-color: white;
+}
+
+.bg-light{
+    background-color: rgb(61, 61, 210) !important;  
+    margin-right: 1%;
+}
+.navbar span{
+    color: beige !important;
+}

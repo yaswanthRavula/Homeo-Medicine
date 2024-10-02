@@ -4,16 +4,16 @@ import java.math.BigInteger;
 import java.util.Date;
 
 public class PatientShor {
-	BigInteger _id;
+	String _id;
 	private String firstname, lastname, gender;
 	 private int age;
 	 private Date joinedDate;
 	 
 	 
-	public BigInteger get_id() {
+	public String get_id() {
 		return _id;
 	}
-	public void set_id(BigInteger _id) {
+	public void set_id(String _id) {
 		this._id = _id;
 	}
 	public String getFirstname() {

@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import java.awt.SystemColor;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +56,9 @@ public class PatientController {
 	}
 	 
 	@PostMapping("/")
-	public boolean addNewPatient(Patient patient) {
+	public boolean addNewPatient(@RequestBody Patient patient) {
 		try {
+			System.out.println("\n\n"+patient.getJoinedDate()+"\n\n");
 			patientsRepository.save(patient);
 			return true;
 		}catch (Exception e) {
@@ -68,7 +70,7 @@ public class PatientController {
 	
 	
 	@PutMapping("/{id}")
-	public boolean updatePatient(@PathVariable(name = "id") BigInteger patientId, @RequestBody Patient patient) {
+	public boolean updatePatient(@PathVariable(name = "id") String patientId, @RequestBody Patient patient) {
 		try{
 			Patient existedPatient = new Patient();
 			 existedPatient = patientsRepository.findById(patientId).orElse(existedPatient);
@@ -83,7 +85,7 @@ public class PatientController {
 	
 	
 	@PostMapping("deleteIds")
-	public boolean deleteByIds(@RequestBody List<BigInteger>ids )
+	public boolean deleteByIds(@RequestBody List<String>ids )
 	{
 		try {
 			patientsRepository.deleteAllById(ids);
@@ -97,7 +99,7 @@ public class PatientController {
 	
 	
 	@DeleteMapping("/{id}")
-	public boolean deleteById(@PathVariable(name = "id") BigInteger id) {
+	public boolean deleteById(@PathVariable(name = "id") String id) {
        try {
     	   patientsRepository.deleteById(id);
     	   return true;
@@ -120,7 +122,7 @@ public class PatientController {
 	}
 	
 	@GetMapping("/getPatient/{id}")
-	public Patient getPatientById(@PathVariable(name="id")BigInteger id) {
+	public Patient getPatientById(@PathVariable(name="id")String id) {
 		return patientsRepository.findById(id).orElse(null);
 	}
 	

@@ -49,8 +49,8 @@ export class IrregularPatientsComponent implements OnInit {
       this.patientsArray=data;
      this.sortedArray=this.patientsArray;
     })
-    this.http.getPatients().subscribe((data)=>{
-     this.sortedArray=this.sortedArray.concat(data);
+    this.http.getPatients().subscribe((data:any)=>{
+    // this.sortedArray=this.sortedArray.concat(data);
       this.patientsArray=data;
       this.filterArrayByDates()
     })

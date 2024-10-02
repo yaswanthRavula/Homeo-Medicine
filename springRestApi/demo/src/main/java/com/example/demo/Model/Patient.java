@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Document(collection = "patients")
 public class Patient {
-	private BigInteger _id;
+	private String _id;
 	 private String firstname, lastname, gender, number, city, comment;
 	 private int age;
 	 private Date joinedDate;
@@ -26,10 +26,10 @@ public class Patient {
 	 
 	 
 	
-	public BigInteger get_id() {
+	public String get_id() {
 		return _id;
 	}
-	public void set_id(BigInteger _id) {
+	public void set_id(String _id) {
 		this._id = _id;
 	}
 	public String getFirstname() {

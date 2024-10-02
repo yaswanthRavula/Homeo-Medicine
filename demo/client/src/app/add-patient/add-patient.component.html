@@ -1,0 +1,57 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&family=Kanit:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
+
+<div class="form-container">
+    <p style="color: rgb(19, 19, 215); font-size:large; ">- Patient Details -</p>
+    <div class="firstname" >
+        <p>Firstname</p>
+        <input type="text" (input)="checkFirstName()" id="firstname" [(ngModel)]="firstName" placeholder="Ex: John">
+    </div>
+
+    <div class="secondname">
+        <p>Secondname</p>
+        <input type="text" (input)="checkSecondName()" id="secondname" [(ngModel)]="secondName" placeholder="Ex: Beck">
+    </div>
+
+    <div class="age">
+        <p>Age</p>
+        <input type="number" (input)="checkAge()" id="age" [(ngModel)]="age" placeholder="Ex: 36">
+    </div>
+
+    <div class="gender">
+        <p>Gender:</p>
+        <select name="gender" id="gender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>    
+    </div>
+
+    <div class="number">
+        <p>Phone Number</p>
+        <input type="number"  id="number" [(ngModel)]="number"  placeholder="Number">
+    </div>
+    <div>
+        <p>City</p>
+        <input type="text" (input)="checkCity()" id="city" [(ngModel)]="city" placeholder="Ex: Guntur">
+    </div>
+
+    <div class="comment">
+        <p>Comment</p>
+        <textarea [(ngModel)]="comment" placeholder=" Anything about patient (Optional)"></textarea><br>
+        
+            <input type="checkbox" id="Sugar" value="Sugar "> Sugar<br>
+            <input type="checkbox" id="BP" value="BP "> BP<br>
+            <input type="checkbox" id="Thyroid" value="Thyroid "> Thyroid<br>
+
+    </div>
+
+    <div>
+        <button (click)="addPatient()">Add Patient</button>
+    </div>
+</div>
+
+
+<div class="background">
+
+</div>

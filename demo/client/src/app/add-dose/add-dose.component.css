@@ -1,0 +1,89 @@
+.container{
+    background-color: white;
+    border-radius:10px;
+    padding: 2%;
+    width: fit-content;
+    text-align: center;
+    
+}
+.success-container{
+   display: none;
+}
+
+
+.success-container h1{
+    font-size: 25px;
+    text-align: center;
+}
+.success-container h3{
+    color: brown;
+    text-decoration: underline;
+    font-size: 10px;
+}
+.fields-container{
+    display: block;
+}
+.fields-container h3{
+    color: darkblue;
+}
+.fields-container input{
+    outline: none;
+    margin-top: 7%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    height: 15%;
+    width: 80%;
+    border: 1px solid skyblue;
+
+}
+
+.fields-container p{
+    margin: 0;
+    margin-top: 10%;
+    color: brown;
+}
+.fields-container select{
+    margin-bottom: 2%;
+}
+.fields-container div{
+    width: 100%;
+    text-align: center;
+}
+.fields-container button{
+    width: 80%;
+    border: 6px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: white;
+     background: linear-gradient(114deg,rgb(150, 150, 238),  #34aadc,rgb(150, 150, 238),rgb(150, 150, 238));
+    
+}
+.container .close{
+    background:linear-gradient(114deg,rgb(238, 150, 157),rgb(238, 150, 160),rgb(238, 150, 160));
+    margin-top: 5%;
+    border: none;
+    color: white;
+    padding: 2%;
+    padding-left: 8%;
+    padding-right: 8%;
+    border-radius: 3px;
+    font-size: 10px;
+}
+table{
+    display: inline;
+}
+@media screen and (max-width: 900px) {
+   
+    .container{
+        top: 10vh;
+        height: 50vh;
+        padding-top: 5%;
+        padding-bottom: 20% !important;
+        
+    }
+    .container .close{
+        margin-bottom: 20vh;
+    }
+  
+}
