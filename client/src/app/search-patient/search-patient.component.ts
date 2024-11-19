@@ -16,6 +16,7 @@ export class SearchPatientComponent implements OnInit {
   noOfPatients:any=0;
   patientsArray=[];
   sortedArray=[];
+  autoCompletedArray=[];
   @Output() patient:PatientDetails;
   constructor( private http:HttpService, public dialog: MatDialog, private localStorage:LocalStorageService, private router:Router) { }
 
@@ -93,16 +94,29 @@ export class SearchPatientComponent implements OnInit {
     this.http.getPatients().subscribe((data:any)=>{
       this.sortedArray=data;
       this.noOfPatients=this.sortedArray.length;
-      console.log(this.sortedArray)
 
     })
 
 }
+n=0;
 getPatientsBySearch(){
+  this.n=0;
   let searchedText=(<HTMLInputElement>document.getElementById("search")).value;
-  this.http.getPatientsByName(searchedText).subscribe((res:any)=>{
+  this.http.autoComplete(searchedText).subscribe((res:any)=>{
+    this.n=searchedText.length
+   // this.sortedArray = res;
+    //this.noOfPatients = res.length;
+    this.autoCompletedArray=res;
+  })
+}
+
+onSuggestionClicked(item){
+  this.autoCompletedArray=[];
+  this.n=0;
+  this.http.fuzzySearchByName(item.firstname).subscribe((res:any)=>{
     this.sortedArray = res;
     this.noOfPatients = res.length;
+    (<HTMLInputElement>document.getElementById("search")).value=""
   })
 }
 }

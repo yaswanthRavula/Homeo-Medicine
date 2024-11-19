@@ -45,4 +45,12 @@ APiUrl="https://d1ghyukalpa50j.cloudfront.net/HomeoMedicine/patients";
   getPatientsByName(name){
     return this.http.get(this.APiUrl+"/fetchByName?name="+name)
   }
+
+  autoComplete(partialName){
+    return this.http.get("http://localhost:8080/autoComplete/"+partialName)
+  }
+
+  fuzzySearchByName(partialName){
+    return this.http.get("http://localhost:8080/fuzzySearch/"+partialName)
+  }
 }

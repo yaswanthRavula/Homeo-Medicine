@@ -8,6 +8,27 @@
     background-color:  linear-gradient(150deg,rgb(3, 3, 63),blue,darkblue);
 
 }
+.autoCompleteList{
+    position: absolute;
+    width: 250px;
+    margin-top: 10px;
+   font-size: 16px;
+     z-index: 1000;
+     border: 1px solid rgba(128, 128, 128, 0.489);
+     padding: 15px;
+     border-radius: 5px;
+     background: white;
+     
+}
+
+.autoCompleteList p{
+    cursor: pointer;
+}
+
+.autoCompleteList p:hover{
+    color: blue;
+}
+
 i{
     cursor: pointer;
     position: absolute;
@@ -45,14 +66,25 @@ i{
 }
 .search-container{
     margin-left: 70%;
-    border: 1px solid grey;
+    
     width: fit-content;
     height: fit-content;
     padding: 0.5%;
     padding-left: 2%;
     padding-right: 2%;
-    border-radius: 5px;
     
+    
+}
+.search-inner{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 0.5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
 }
 .search-container input{
     border: none;
